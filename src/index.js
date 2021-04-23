@@ -1,7 +1,7 @@
 import { ApolloServer, gql } from 'apollo-server-express';
 import express from 'express';
 import mongoose from 'mongoose';
-import { typeDefs, resolvers } from './schema';
+import { typeDefs } from './typeDefs';
 
 const app = express()
 

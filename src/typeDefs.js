@@ -16,10 +16,6 @@ export const typeDefs = gql`
         User: User
     }
 
-    input CommentWhereUniqueInput {
-        id: Int
-    }
-
     scalar DateTime
 
     type Following {
@@ -30,18 +26,10 @@ export const typeDefs = gql`
         User: User
     }
 
-    input FollowingWhereUniqueInput {
-        id: Int
-    }
-
     type LikedTweet {
         id: Int!
         likedAt: DateTime!
         tweet: Tweet!
-    }
-
-    input LikedTweetWhereUniqueInput {
-        id: Int
     }
 
     type Mutation {
@@ -80,7 +68,7 @@ export const typeDefs = gql`
         content: String
         createdAt: DateTime!
         id: Int!
-        likes(after: LikedTweetWhereUniqueInput, before: LikedTweetWhereUniqueInput, first: Int, last: Int): [LikedTweet!]!
+        likes: [LikedTweet!]!
     }
 
     type User {
@@ -88,7 +76,7 @@ export const typeDefs = gql`
         email: String!
         Following: [Following!]!
         id: Int!
-        likedTweet(after: LikedTweetWhereUniqueInput, before: LikedTweetWhereUniqueInput, first: Int, last: Int): [LikedTweet!]!
+        likedTweet: [LikedTweet!]!
         name: String
         Profile: Profile
         tweets: [Tweet!]!
